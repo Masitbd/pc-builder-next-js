@@ -6,23 +6,96 @@ import {
     LinkedinFilled,
     GoogleSquareFilled,
     TwitterSquareFilled,
-  } from "@ant-design/icons";
-  import { Layout, Menu } from "antd";
+    MailOutlined,
+    AppstoreOutlined,
+    SettingOutlined,
+    SmileOutlined,
+    DownOutlined,
+} from "@ant-design/icons";
+  import { Button, Dropdown, Layout, Space } from "antd";
   const { Header, Content, Footer } = Layout;
   import styles from "@/styles/Home.module.css";
   import Link from "next/link";
-  
+import { useState } from "react";
+const items = [
+  {
+    key: '1',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+        CPU/Processor
+      </a>
+    ),
+  },
+  {
+    key: '2',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+        Motherbord
+      </a>
+    ),
+    icon: <SmileOutlined />,
+   
+  },
+  {
+    key: '3',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+        RAM
+      </a>
+    ),
+    },
+    {
+      key: '4',
+      label: (
+        <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+          Power Supply Unit
+        </a>
+      ),
+      },
+      {
+        key: '5',
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+            Storage Device
+          </a>
+        ),
+        },
+        {
+          key: '6',
+          label: (
+            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+              Monitor
+            </a>
+          ),
+          },
+          {
+            key: '7',
+            label: (
+              <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+                Others
+              </a>
+            ),
+            },
+];
+ 
   const RootLayout = ({ children }) => {
-    return (
+    const [current, setCurrent] = useState('mail');
+    const onClick = (e) => {
+    console.log('click ', e);
+    setCurrent(e.key);
+  };
+   return (
+    <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
       <Layout>
         <Header
           style={{
             display: "flex",
             justifyContent: "space-between",
+            paddingRight: '100px'
           }}
         >
           <div className="brand-logo">
-            <h1>
+            <>
               <Link
                 href="/"
                 style={{
@@ -32,39 +105,34 @@ import {
                   borderRadius: "3px",
                 }}
               >
-                PH_NEWS PORTAL
+                PC Builder Application
               </Link>
-            </h1>
+            </>
           </div>
-          <Menu theme="dark" mode="vertical" className={styles.menu_items}>
-            <Link href="/allNews">
-              <items>
-                <ProfileOutlined />
-                All News
-              </items>
-            </Link>
-            <Link href="/about">
-              <items
-                style={{
-                  margin: "0px 25px",
-                }}
-              >
-                <UserOutlined />
-                About Us
-              </items>
-            </Link>
-            <Link href="/contact">
-              <items>
-                <MobileOutlined />
-                Contact Us
-              </items>
-            </Link>
-          </Menu>
+          
+        
+         <div style={{display:'flex'}}>
+        <span style={{marginRight:'20px'}}>
+        <Button style={{margin:'auto' }} type="primary" danger>PC Builder</Button>
+        </span>
+         <Dropdown
+    menu={{
+      items, 
+    }}
+  >
+    <a onClick={(e) => e.preventDefault()}>
+      <Space style={{color: 'white'}}>
+        Categories
+        <DownOutlined />
+      </Space>
+       </a>
+         </Dropdown>
+        </div>
         </Header>
   
         <Content
           style={{
-            padding: "0 24px",
+            padding: "0 50px 50px",
             minHeight: "100vh",
           }}
         >
@@ -82,7 +150,7 @@ import {
               fontSize: "28px",
             }}
           >
-            PH-NEWS PORTAL
+            PC BUILDER PORTAL
           </h2>
           <p className={styles.social_icons}>
             <Link href="https://web.facebook.com/groups/programmingherocommunity">
@@ -98,9 +166,10 @@ import {
               <LinkedinFilled />
             </Link>
           </p>
-          News Portal ©2023 Created by Programming Hero
+          Pc Builder Portal ©2023 Created by Murad Hossain Sarker
         </Footer>
       </Layout>
+      </Space>
     );
   };
   export default RootLayout;
