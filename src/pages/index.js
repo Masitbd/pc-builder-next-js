@@ -3,12 +3,12 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import RootLayout from '@/components/Layouts/RootLayout'
-import { Button } from 'antd'
-import Card from '@/components/Reusable/ItemCard'
+import { Button, Col, Row } from 'antd'
+import ItemCard from '@/components/Reusable/ItemCard'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function HomePage() {
+export default function HomePage({products}) {
   return (
     <>
       <Head>
@@ -17,7 +17,18 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Card />
+      <div style={{ padding: '20px' }}>
+      <Row gutter={[16, 16]}>
+        {
+        products?.map((product, index) => (
+          <Col key={index} xs={24} sm={12} md={8} lg={6}>
+          {/* <p>{product.lenght}</p> */}
+            <ItemCard product ={product} />
+          </Col>
+        ))
+        }
+      </Row>
+    </div>
     </>
   )
 }
@@ -25,3 +36,13 @@ export default function HomePage() {
 HomePage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
+
+export const getServerSideProps = async()=>{
+  const res = await fetch('http://localhost:3000/api/product')
+  const data = await res.json()
+  return{
+    props: {
+      products: data.data
+    }
+  }
+}
