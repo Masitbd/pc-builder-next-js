@@ -6,7 +6,8 @@ import BackButton from '../../components/Reusable/BackButton'
 
 
 const ProductDetails = ({product}) => {
-    const {image, productName, category, price, rating } = product
+    const {title, description, price, status, rating, category  } = product
+    const image = 'https://img.freepik.com/free-vector/computer-design_1156-101.jpg?size=626&ext=jpg&ga=GA1.2.1740125276.1689067011&semt=sph'
     return (
        <div style={{display:'flex', justifyContent: 'center', alignItems:'center', height: '100vh'}}>
         <Row gutter={[16, 16]} style={{marginTop:'40px'}}>
@@ -19,8 +20,9 @@ const ProductDetails = ({product}) => {
         </Card>
         </Col>
         <Card title="Product Information" bordered={false} style={{ width: 300 }}>
-            <p>Category:{category}</p>
+            <p>Category:{description}</p>
             <p>Price:{price}</p>
+            <p>Price:{status}</p>
             <p>Rating:{rating}</p>
         </Card>
        <div style={{marginLeft: '50px'}}>
