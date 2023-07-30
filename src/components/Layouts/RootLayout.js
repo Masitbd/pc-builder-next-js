@@ -20,17 +20,19 @@ import { useState } from "react";
 const items = [
   {
     key: '1',
+    danger:true,
     label: (
       <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        CPU/Processor
+       <span style={{color: '	#353935'}}> CPU/Processor</span>
       </a>
     ),
   },
   {
     key: '2',
+    danger:true,
     label: (
       <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        Motherbord
+        <span style={{color: '#353935'}}>Motherbord</span>
       </a>
     ),
     icon: <SmileOutlined />,
@@ -38,53 +40,62 @@ const items = [
   },
   {
     key: '3',
+    danger:true,
     label: (
       <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        RAM
+         <span style={{color: '#353935'}}>RAM</span>
       </a>
     ),
     },
     {
       key: '4',
+      danger:true,
       label: (
         <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-          Power Supply Unit
+           <span style={{color: '#353935'}}>Power Supply Unit</span>
         </a>
       ),
       },
       {
         key: '5',
+        danger:true,
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-            Storage Device
-          </a>
+             <span style={{color: '#353935'}}>Storage Device</span>
+           </a>
         ),
         },
         {
           key: '6',
+          danger:true,
           label: (
             <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-              Monitor
+               <span style={{color: '#353935'}}>Monitor</span>
+              
             </a>
           ),
           },
           {
             key: '7',
+            danger:true,
             label: (
               <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                Others
+                 <span style={{color: '#353935'}}>Others</span>
+                
               </a>
             ),
             },
 ];
  
   const RootLayout = ({ children }) => {
-    const [current, setCurrent] = useState('mail');
+    const [current, setCurrent] = useState('1');
     const onClick = (e) => {
     console.log('click ', e);
     setCurrent(e.key);
   };
-   return (
+
+
+ return (
     <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
       <Layout>
         <Header
@@ -116,25 +127,37 @@ const items = [
         <Button style={{margin:'auto' }} type="primary" danger>PC Builder</Button>
         </span>
          <Dropdown
+        
     menu={{
       items, 
-    }}
+      selectable: true,
+      
+      
+     
+     }}
+     
+
+    
   >
-    <a onClick={(e) => e.preventDefault()}>
-      <Space style={{color: 'white'}}>
+    <a 
+     
+     onClick={(e) => e.preventDefault()}>
+      <Space  style={{color: 'white'}}>
         Categories
-        <DownOutlined />
+       <DownOutlined />
+    
       </Space>
        </a>
-         </Dropdown>
+      </Dropdown>
         </div>
         </Header>
   
         <Content
-          style={{
+    
+      style={{
             padding: "0 50px 50px",
             minHeight: "100vh",
-          }}
+            }}
         >
           {children}
         </Content>
