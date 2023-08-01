@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import RootLayout from '@/components/Layouts/RootLayout'
 import { Button, Col, Row } from 'antd'
 import ItemCard from '@/components/Reusable/ItemCard'
+import FeaturedCategory from '@/components/UI/FeaturedCategory'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +18,8 @@ export default function HomePage({products}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{ padding: '20px' }}>
+      <FeaturedCategory />
+    
       <Row gutter={[16, 16]}>
         {
         products?.map((product, index) => (
@@ -28,8 +30,8 @@ export default function HomePage({products}) {
         ))
         }
       </Row>
-    </div>
     </>
+  
   )
 }
 
