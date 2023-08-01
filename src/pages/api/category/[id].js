@@ -1,4 +1,5 @@
 const { client } = require('../connection');
+import { ObjectId } from 'mongodb';
 
 async function run(req, res) {
   try {
@@ -7,9 +8,11 @@ async function run(req, res) {
     const categoriesCollection = client.db('pc-builder').collection('category')
 
     if (req.method==='GET') {
-      const categories = await categoriesCollection.find({category}).toArray()
-      console.log(categories)
-      res.send({message: 'Success', status: 200, data: categories})
+        const { query } = req;
+    
+        const { id } = query;
+        const categories = await categoriesCollection.find({category:id}).toArray()
+        res.send({message: 'Success', status: 200, data: categories})
     }
   } finally {
   }

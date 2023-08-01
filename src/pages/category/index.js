@@ -9,7 +9,7 @@ import FeaturedCategory from '@/components/UI/FeaturedCategory'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function HomePage({products}) {
+export default function Category({category}) {
   return (
     <>
       <Head>
@@ -18,14 +18,14 @@ export default function HomePage({products}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <FeaturedCategory /> 
+      <FeaturedCategory />
     
       <Row gutter={[16, 16]}>
         {
         products?.map((product, index) => (
           <Col key={index} xs={24} sm={12} md={8} lg={6}>
           {/* <p>{product.lenght}</p> */}
-            <ItemCard product ={product} />
+            <ItemCard product ={category} />
           </Col>
         ))
         }
@@ -35,16 +35,14 @@ export default function HomePage({products}) {
   )
 }
 
-HomePage.getLayout = function getLayout(page) {
+Category.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export const getServerSideProps = async()=>{
-  const res = await fetch('http://localhost:3000/api/product')
-  const data = await res.json()
-  return{
-    props: {
-      products: data.data
-    }
-  }
+export const getServerSideProps = async (context) => {
+    const { params } = context
+    const res = await fetch(`http://localhost:3000/api/category/${params?.id}`)
+    const data = await res.json()
+
+    return { props: { categories: data.data } }
 }
