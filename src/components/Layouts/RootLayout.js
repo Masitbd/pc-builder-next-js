@@ -124,7 +124,9 @@ const items = [
         
          <div style={{display:'flex'}}>
         <span style={{marginRight:'20px'}}>
+          <Link href='/pc-builder'>
         <Button style={{margin:'auto' }} type="primary" danger>PC Builder</Button>
+        </Link>
         </span>
          <Dropdown
         

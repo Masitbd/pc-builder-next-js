@@ -6,7 +6,7 @@ import RootLayout from '@/components/Layouts/RootLayout'
 import { Button, Col, Row } from 'antd'
 import CategoryDetail from '@/components/Reusable/CategoryDetail'
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Category({categories}) {
   return (
