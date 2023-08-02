@@ -40,7 +40,7 @@ HomePage.getLayout = function getLayout(page) {
 };
 
 export const getServerSideProps = async()=>{
-  const res = await fetch('http://localhost:3000/api/product')
+  const res = await fetch(`${process.env.BASE_URL}/product`)
   const data = await res.json()
   return{
     props: {

@@ -45,7 +45,7 @@ export default function PcBuilder(){
         <div style={{display:'flex', justifyContent:'space-between', width: '50%', margin:'10px auto'}}>
         <div>
         <p >Total Price: </p>
-        <p >$ taka</p>
+        <p >$ {totlalPrice}</p>
            </div>
            <div className='text-center mt-4 mb-8'>
                     <button onClick={onCompleteSubmit} disabled={selectItems.length < 5} className='btn btn-info btn-wide'>Complete Build</button>

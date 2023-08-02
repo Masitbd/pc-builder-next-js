@@ -5,13 +5,13 @@ const initialState={
 }
 
 export const selectItemSlice = createSlice({
-    name:'selectItem',
+    name:'selectComponent',
     initialState,
     reducers:{
         addItem:(state, action)=>{
             const category = action.payload.category
             state.selectItems = state.selectItems.filter(Item=>Item.category !==category)
-            selectItems.push(action.payload)
+            state.selectItems.push(action.payload)
         }
     },
         removeItem:(state, action)=> {

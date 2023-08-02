@@ -40,7 +40,7 @@ Category.getLayout = function getLayout(page) {
 
 export const getServerSideProps = async (context) => {
     const { params } = context
-    const res = await fetch(`http://localhost:3000/api/category/${params?.id}`)
+    const res = await fetch(`${process.env.BASE_URL}/category/${params?.id}`)
     const data = await res.json()
 
     return { props: { categories: data.data } }

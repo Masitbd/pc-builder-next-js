@@ -1,3 +1,4 @@
+import { CheckOutlined } from '@ant-design/icons';
 import { Badge, Button, Tag } from 'antd';
 import Link from 'next/link';
 import React from 'react';
@@ -16,7 +17,7 @@ const CategoryItem = ({category}) => {
            </div>
            <div>
             <Link href={`/select-item/${category.value}`}>
-               <Button type='primary' >Select</Button>
+               <Button type='primary' >{selected ? <CheckOutlined />:'Select'}</Button>
            </Link>
            </div>
 

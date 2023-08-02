@@ -22,7 +22,7 @@ const items = [
     key: '1',
     danger:true,
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <a target="_blank" rel="noopener noreferrer" href="/cpu/CPU">
        <span style={{color: '	#353935'}}> CPU/Processor</span>
       </a>
     ),
@@ -31,7 +31,7 @@ const items = [
     key: '2',
     danger:true,
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+      <a target="_blank" rel="noopener noreferrer" href="/motherbord/Motherbord">
         <span style={{color: '#353935'}}>Motherbord</span>
       </a>
     ),
@@ -42,7 +42,7 @@ const items = [
     key: '3',
     danger:true,
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+      <a target="_blank" rel="noopener noreferrer" href="/ram/RAM">
          <span style={{color: '#353935'}}>RAM</span>
       </a>
     ),
@@ -51,7 +51,7 @@ const items = [
       key: '4',
       danger:true,
       label: (
-        <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+        <a target="_blank" rel="noopener noreferrer" href="/ram/RAM">
            <span style={{color: '#353935'}}>Power Supply Unit</span>
         </a>
       ),
@@ -60,7 +60,7 @@ const items = [
         key: '5',
         danger:true,
         label: (
-          <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+          <a target="_blank" rel="noopener noreferrer" href="/ram/RAM">
              <span style={{color: '#353935'}}>Storage Device</span>
            </a>
         ),
@@ -69,7 +69,7 @@ const items = [
           key: '6',
           danger:true,
           label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+            <a target="_blank" rel="noopener noreferrer" href="/ram/RAM">
                <span style={{color: '#353935'}}>Monitor</span>
               
             </a>
@@ -79,7 +79,7 @@ const items = [
             key: '7',
             danger:true,
             label: (
-              <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+              <a target="_blank" rel="noopener noreferrer" href="/ram/RAM">
                  <span style={{color: '#353935'}}>Others</span>
                 
               </a>

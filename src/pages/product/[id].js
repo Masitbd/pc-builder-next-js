@@ -43,7 +43,7 @@ ProductDetails.getLayout = function getLayout(page) {
 
 export const getServerSideProps = async (context) => {
     const { params } = context
-    const res = await fetch(`http://localhost:3000/api/product/${params?.id}`)
+    const res = await fetch(`${process.env.BASE_URL}/product/${params?.id}`)
     const data = await res.json()
 
     return { props: { product: data.data } }

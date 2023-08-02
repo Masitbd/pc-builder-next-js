@@ -1,5 +1,5 @@
 import RootLayout from "@/components/Layouts/RootLayout";
-import CategoryDetail from "@/components/Reusable/CategoryDetail";
+import SelectProduct from "@/components/Reusable/SelectProduct";
 import { Col, Row } from "antd";
 import Head from "next/head";
 
@@ -19,7 +19,7 @@ export default function SelectItem({categories}) {
           categories?.map((category, index) => (
             <Col key={index} xs={24} sm={12} md={8} lg={6}>
             {/* <p>{product.lenght}</p> */}
-           <CategoryDetail category ={category} />
+           <SelectProduct category ={category} />
             </Col>
           ))
           }
@@ -35,8 +35,7 @@ export default function SelectItem({categories}) {
   
   export const getServerSideProps = async (context) => {
       const { params } = context
-      const res = await fetch(`http://localhost:3000/api/selectItem/${params?.id}`)
-       console.log('hello',params.id)
+      const res = await fetch(`${process.env.BASE_URL}/selectItem/${params?.id}`)
       const data = await res.json()
     
   
